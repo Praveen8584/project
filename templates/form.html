@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Add Student</title>
 
 <!-- Bootstrap -->
@@ -12,53 +14,70 @@
     }
 
     .form-box {
+        width: 100%;
         max-width: 500px;
-        margin: 60px auto;
-        padding: 25px;
+        margin: auto;
+        margin-top: 40px;
+        padding: 20px;
         background: #fff;
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 576px) {
+        .form-box {
+            margin-top: 20px;
+            padding: 15px;
+        }
     }
 </style>
 </head>
 
 <body>
-    
 
-<div class="form-box">
-    <a href="/logout" class="btn btn-danger float-end">Logout</a>
-    <h3 class="text-center mb-3">Admission Form</h3>
+<div class="container">
+    <div class="form-box">
 
-    <!-- Success Message -->
-    {% if success %}
-    <div id="successMsg" class="alert alert-success text-center">
-        Record Submit Successfully
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Admission Form</h5>
+            <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+        </div>
+
+        <!-- Success Message -->
+        {% if success %}
+        <div id="successMsg" class="alert alert-success text-center">
+            Record Submit Successfully
+        </div>
+        {% endif %}
+
+        <form method="POST">
+
+            <input type="text" name="name" placeholder="Full Name" class="form-control mb-3" required>
+
+            <input type="text" name="adhar" placeholder="Aadhar Number" class="form-control mb-3" required>
+
+            <input type="email" name="email" placeholder="Email" class="form-control mb-3" required>
+
+            <input type="tel" name="phone" placeholder="Phone" class="form-control mb-3" required>
+
+            <select name="gender" class="form-select mb-3" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <select name="course" class="form-select mb-4" required>
+                <option value="">Select Course</option>
+                <option>Computer Science</option>
+                <option>Mechanical</option>
+                <option>Civil</option>
+            </select>
+
+            <button type="submit" class="btn btn-success w-100">Submit</button>
+
+        </form>
+
     </div>
-    {% endif %}
-
-    <form method="POST">
-        <input type="text" name="name" placeholder="Full Name" class="form-control mb-2" required>
-
-        <input type="text" name="adhar" placeholder="Adhar Number" class="form-control mb-2" required>
-
-        <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>
-
-        <input type="text" name="phone" placeholder="Phone" class="form-control mb-2" required>
-
-        <select name="gender" class="form-control mb-2">
-            <option>Male</option>
-            <option>Female</option>
-        </select>
-
-        <select name="course" class="form-control mb-3">
-            <option>Computer Science</option>
-            <option>Mechanical</option>
-            <option>Civil</option>
-        </select>
-
-        <button class="btn btn-success w-100">Submit</button>
-    </form>
-
 </div>
 
 <!-- Auto Hide Script -->
