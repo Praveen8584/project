@@ -35,6 +35,9 @@
         </div>
     </div>
 
+    <!-- Search Box -->
+    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search students...">
+
     <!-- Table -->
     <div class="table-responsive">
         <table class="table table-bordered table-striped text-nowrap">
@@ -75,6 +78,19 @@
     </div>
 
 </div>
+
+<!-- Search Script -->
+<script>
+document.getElementById("searchInput").addEventListener("keyup", function() {
+    let value = this.value.toLowerCase();
+    let rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+        let text = row.innerText.toLowerCase();
+        row.style.display = text.includes(value) ? "" : "none";
+    });
+});
+</script>
 
 </body>
 </html>
