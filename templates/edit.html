@@ -37,7 +37,10 @@
 <div class="container">
     <div class="form-box">
 
-        <h4 class="text-center mb-3">Edit Student</h4>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Update Form</h5>
+            <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+        </div>
 
         <!-- Success Message -->
         {% if success %}
@@ -78,15 +81,14 @@
             <div class="mb-3">
                 <select name="course" class="form-select" required>
                     <option value="">Select Course</option>
-                    <option value="BCA" {% if student.course=='BCA' %}selected{% endif %}>BCA</option>
-                    <option value="BBA" {% if student.course=='BBA' %}selected{% endif %}>BBA</option>
-                    <option value="BCom" {% if student.course=='BCom' %}selected{% endif %}>B.Com</option>
-                    <option value="MCA" {% if student.course=='MCA' %}selected{% endif %}>MCA</option>
-                    <option value="MBA" {% if student.course=='MBA' %}selected{% endif %}>MBA</option>
+                    <option value="Civil Engineering" {% if student.course=='Civil Engineering' %}selected{% endif %}>Civil Engineering</option>
+                    <option value="Computer Science & Engineering" {% if student.course=='Computer Science & Engineering' %}selected{% endif %}>Computer Science & Engineering</option>
+                    <option value="Electronics & Communication Engineering" {% if student.course=='Electronics & Communication Engineering' %}selected{% endif %}>Electronics & Communication Engineering</option>
+                    <option value="Mechanical Engineering" {% if student.course=='Mechanical Engineering' %}selected{% endif %}>Mechanical Engineering</option>
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary w-100">Update</button>
+            <button type="submit" class="btn btn-success w-100">Update</button>
 
         </form>
 
