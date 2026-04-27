@@ -18,11 +18,24 @@ def init_db():
     conn = get_db()
     conn.execute('''CREATE TABLE IF NOT EXISTS students (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    name TEXT,
-                    adhar INTEGER,
-                    email TEXT,
-                    phone TEXT,
-                    gender TEXT,
+                    NAME_SSLC TEXT,
+                    Name_Aadhar TEXT,
+                    Aadhar_Number TEXT,
+                    Name_of_the_Mother TEXT,
+                    Name_of_the_Father TEXT,
+                    Date_of_Birth TEXT,
+                    Gender TEXT,
+                    Religion TEXT,
+                    Qualifying_Examination TEXT,
+                    Code_of_Native_State TEXT,
+                    Code_of_Native_District TEXT,
+                    Total_No_of_Years_Studied_In_Karnataka TEXT,
+                    You_Have_Studied_In_Rural_Areas_From_1_to_10 TEXT,
+                    Have_You_Studied_In_Kanada_Medium_From_1_to_10 TEXT,
+                    Do_You_Claming_Exemption_From_5_Years_of_Study_Rule TEXT,
+                    Do_You_Claiming_SNQ_Quota_Benefit TEXT,
+                    Do_You_Claiming_HydKar_Quota_Benefit TEXT,
+                    Do_You_Claiming_Special_Category_Benefit TEXT,
                     course TEXT
                 )''')
     conn.close()
@@ -79,10 +92,10 @@ def dashboard():
 def add():
     if request.method == 'POST':
         conn = get_db()
-        conn.execute("INSERT INTO students (name,adhar,email,phone,gender,course) VALUES (?,?,?,?,?,?)",
-                     (request.form['name'], request.form['adhar'], request.form['email'],
-                      request.form['phone'], request.form['gender'],
-                      request.form['course']))
+        conn.execute("INSERT INTO students (Name_SSLC,Name_Aadhar,Aadhar_Number,Name_of_the_Mother,Name_of_the_Father,Date_of_Birth,Gender,Religion,Qualifying_Examination,Code_of_Native_State,Code_of_Native_District,Total_No_of_Years_Studied_In_Karnataka,You_Have_Studied_In_Rural_Areas_From_1_to_10,Have_You_Studied_In_Kanada_Medium_From_1_to_10,Do_You_Claming_Exemption_From_5_Years_of_Study_Rule,Do_You_Claiming_SNQ_Quota_Benefit,Do_You_Claiming_HydKar_Quota_Benefit,Do_You_Claiming_Special_Category_Benefit,course) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                     (request.form['Name_SSLC'], request.form['Name_Aadhar'], request.form['Aadhar_Number'],
+                      request.form['Name_of_the_Mother'], request.form['Name_of_the_Father'], request.form['Date_of_Birth'], request.form['Gender'],
+                      request.form['Religion'], request.form['Qualifying_Examination'], request.form['Code_of_Native_State'], request.form['Code_of_Native_District'], request.form['Total_No_of_Years_Studied_In_Karnataka'], request.form['You_Have_Studied_In_Rural_Areas_From_1_to_10'],request.form['Have_You_Studied_In_Kanada_Medium_From_1_to_10'], request.form['Do_You_Claming_Exemption_From_5_Years_of_Study_Rule'], request.form['Do_You_Claiming_SNQ_Quota_Benefit'], request.form['Do_You_Claiming_HydKar_Quota_Benefit'], request.form['Do_You_Claiming_Special_Category_Benefit'], request.form['course']))
         conn.commit()
         return render_template('form.html',success=True)
     return render_template('form.html',success=False)
@@ -103,10 +116,10 @@ def delete(id):
 def edit(id):
     conn = get_db()
     if request.method == 'POST':
-        conn.execute("""UPDATE students SET name=?, adhar=?, email=?, phone=?, gender=?, course=? WHERE id=?""",
-                     (request.form['name'], request.form['adhar'], request.form['email'],
-                      request.form['phone'], request.form['gender'],
-                      request.form['course'], id))
+        conn.execute("""UPDATE students SET Name_SSLC=?, Name_Aadhar=?, Aadhar_Number=?, Name_of_the_Mother=?,Name_of_the_Father=?,Date_of_Birth=?,Gender=?,Religion=?,Qualifying_Examination=?,Code_of_Native_State=?,Code_of_Native_District=?,Total_No_of_Years_Studied_In_Karnataka=?,You_Have_Studied_In_Rural_Areas_From_1_to_10=?,Have_You_Studied_In_Kanada_Medium_From_1_to_10=?,Do_You_Claming_Exemption_From_5_Years_of_Study_Rule=?,Do_You_Claiming_SNQ_Quota_Benefit=?,Do_You_Claiming_HydKar_Quota_Benefit=?,Do_You_Claiming_Special_Category_Benefit=?,course=? WHERE id=?""",
+                     (request.form['Name_SSLC'], request.form['Name_Aadhar'], request.form['Aadhar_Number'],
+                      request.form['Name_of_the_Mother'], request.form['Name_of_the_Father'], request.form['Date_of_Birth'], request.form['Gender'],
+                      request.form['Religion'], request.form['Qualifying_Examination'], request.form['Code_of_Native_State'], request.form['Code_of_Native_District'],request.form['Total_No_of_Years_Studied_In_Karnataka'], request.form['You_Have_Studied_In_Rural_Areas_From_1_to_10'], request.form['Have_You_Studied_In_Kanada_Medium_From_1_to_10'], request.form['Do_You_Claming_Exemption_From_5_Years_of_Study_Rule'], request.form['Do_You_Claiming_SNQ_Quota_Benefit'], request.form['Do_You_Claiming_HydKar_Quota_Benefit'], request.form['Do_You_Claiming_Special_Category_Benefit'], request.form['course'], id))
         conn.commit()
         return redirect('/dashboard')
 
