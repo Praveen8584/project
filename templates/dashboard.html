@@ -46,11 +46,24 @@
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Adhar</th>
-                    <th>Email</th>
-                    <th>Phone</th>
+                    <th>Name As Per SSLC</th>
+                    <th>Name As Per Aadhar</th>
+                    <th>Aadhar Number</th>
+                    <th>Name of the Mother</th>
+                    <th>Name of the Father</th>
+                    <th>Date of Birth</th>
                     <th>Gender</th>
+                    <th>Religion</th>
+                    <th>Qualifying Examination</th>
+                    <th>Code of Native State</th>
+                    <th>Code of Native District</th>
+                    <th>Total No of Years Studied In Karnataka</th>
+                    <th>You Have Studied In Rural Areas From 1 to 10</th>
+                    <th>Have You Studied In Kanada Medium From 1 to 10</th>
+                    <th>Do You Claming Exemption From 5 Years of Study Rule</th>
+                    <th>Do You Claiming SNQ Quota Benefit</th>
+                    <th>Do You Claiming HydKar Quota Benefit</th>
+                    <th>Do You Claiming Special Category Benefit</th>
                     <th>Course</th>
                     <th>Action</th>
                 </tr>
@@ -60,11 +73,24 @@
                 {% for row in data %}
                 <tr>
                     <td>{{row.id}}</td>
-                    <td>{{row.name}}</td>
-                    <td>{{row.adhar}}</td>
-                    <td>{{row.email}}</td>
-                    <td>{{row.phone}}</td>
-                    <td>{{row.gender}}</td>
+                    <td>{{row.Name_SSLC}}</td>
+                    <td>{{row.Name_Aadhar}}</td>
+                    <td>{{row.Aadhar_Number}}</td>
+                    <td>{{row.Name_of_the_Mother}}</td>
+                    <td>{{row.Name_of_the_Father}}</td>
+                    <td>{{row.Date_of_Birth}}</td>
+                    <td>{{row.Gender}}</td>
+                    <td>{{row.Religion}}</td>
+                    <td>{{row.Qualifying_Examination}}</td>
+                    <td>{{row.Code_of_Native_State}}</td>
+                    <td>{{row.Code_of_Native_District}}</td>
+                    <td>{{row.Total_No_of_Years_Studied_In_Karnataka}}</td>
+                    <td>{{row.You_Have_Studied_In_Rural_Areas_From_1_to_10}}</td>
+                    <td>{{row.Have_You_Studied_In_Kanada_Medium_From_1_to_10}}</td>
+                    <td>{{row.Do_You_Claming_Exemption_From_5_Years_of_Study_Rule}}</td>
+                    <td>{{row.Do_You_Claiming_SNQ_Quota_Benefit}}</td>
+                    <td>{{row.Do_You_Claiming_HydKar_Quota_Benefit}}</td>
+                    <td>{{row.Do_You_Claiming_Special_Category_Benefit}}</td>
                     <td>{{row.course}}</td>
                     <td>
                         <div class="d-flex flex-column flex-md-row gap-1">
