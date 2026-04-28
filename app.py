@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = "secret123"
 
 # ✅ DATABASE PATH (IMPORTANT CHANGE)
-DB_PATH = "/data/database.db"
+DB_PATH = os.environ.get("DB_PATH", "database.db")
 
 # DATABASE CONNECTION
 def get_db():
